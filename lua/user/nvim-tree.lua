@@ -13,7 +13,4 @@ require("nvim-tree").setup({
         { key = "v",                  cb = tree_cb "vsplit" }, }
     }
   },
-  filters = {
-    dotfiles = true,
-  },
 })
