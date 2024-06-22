@@ -1,4 +1,3 @@
--- Shorter names
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
@@ -8,18 +7,13 @@ vim.g.mapleader = " "
 -- Save file
 keymap("n", "<leader>w", ":w<CR>", opts)
 
--- Toggle NvimTree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-
--- Navigate buffers
+-- Control buffers
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<leader>c", ":bd<CR>", opts)
+keymap("n", "<leader>ba", ":%bd|e#|bd#<CR>", opts)
 
--- Navigate between NvimTree and file
-keymap("n", "<C-h>", "<C-w><Left>", opts)
-keymap("n", "<C-l>", "<C-w><Right>", opts)
-
--- Telescope
+-- Shortcuts for Telescope
 local builtin = require('telescope.builtin')
 keymap('n', '<leader>ff', builtin.find_files, {})
 keymap('n', '<leader>fg', builtin.live_grep, {})
