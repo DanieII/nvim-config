@@ -18,3 +18,7 @@ local builtin = require("telescope.builtin")
 keymap("n", "<leader>ff", builtin.find_files, {})
 keymap("n", "<leader>fg", builtin.live_grep, {})
 keymap("n", "<leader>fb", builtin.buffers, {})
+
+-- LSP
+keymap("n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", opts)
+keymap("n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)

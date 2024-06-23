@@ -3,10 +3,28 @@ local null_ls = require("null-ls")
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
+-- .prettierrc.json file for Astro formatting to work
+-- {
+--   "semi": false,
+--   "singleQuote": true,
+--   "plugins": ["prettier-plugin-astro"],
+--   "overrides": [
+--     {
+--       "files": "*.astro",
+--       "options": {
+--         "parser": "astro"
+--       }
+--     }
+--   ]
+-- }
+
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
+		formatting.prettier.with({
+			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+			extra_filetypes = { "astro" },
+		}),
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
 	},
