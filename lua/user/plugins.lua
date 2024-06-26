@@ -23,7 +23,17 @@ return require("packer").startup(function(use)
 	use("neovim/nvim-lspconfig")
 	use({
 		"williamboman/mason.nvim",
-		opts = { ensure_installed = { "ruff_lsp", "pyright", "prettier", "black", "astro@1.0.8", "prettierd" } },
+		opts = {
+			ensure_installed = {
+				"ruff-lsp",
+				"pyright",
+				"prettier",
+				"black",
+				"astro@1.0.8",
+				"prettierd",
+				"emmet-language-server",
+			},
+		},
 	})
 	use("nvim-lualine/lualine.nvim")
 	use({ "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" } })
