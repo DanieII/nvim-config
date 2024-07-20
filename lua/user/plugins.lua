@@ -32,6 +32,7 @@ return require("packer").startup(function(use)
 				"astro@1.0.8",
 				"prettierd",
 				"emmet-language-server",
+				"tailwindcss-language-server",
 			},
 		},
 	})
