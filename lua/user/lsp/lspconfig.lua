@@ -1,4 +1,4 @@
-local servers = { "lua_ls", "pyright", "astro", "cssls", "tsserver", "emmet_language_server", "tailwindcss" }
+local servers = { "lua_ls", "pyright", "astro", "tsserver", "emmet_language_server", "tailwindcss" }
 local lspconfig = require("lspconfig")
 
 for _, server in pairs(servers) do

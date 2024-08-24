@@ -40,13 +40,3 @@ require("nvim-tree").setup({
 		},
 	},
 })
-
-local keymap = vim.keymap.set
-local opts = { noremap = true, silent = true }
-
--- Toggle NvimTree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-
--- Navigate between NvimTree and file
-keymap("n", "<C-h>", "<C-w><Left>", opts)
-keymap("n", "<C-l>", "<C-w><Right>", opts)
