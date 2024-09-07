@@ -1,5 +1,5 @@
-local servers = { "lua_ls", "pyright", "astro", "ts_ls", "emmet_language_server", "tailwindcss" }
 local lspconfig = require("lspconfig")
+local servers = require("user.lsp.mason")
 
 for _, server in pairs(servers) do
 	local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
