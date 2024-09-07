@@ -3,4 +3,9 @@ return {
 	on_attach = function(client)
 		client.server_capabilities.document_formatting = false
 	end,
+	settings = {
+		implicitProjectConfiguration = {
+			checkJs = true,
+		},
+	},
 }

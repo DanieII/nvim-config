@@ -25,14 +25,8 @@ return require("packer").startup(function(use)
 		"williamboman/mason.nvim",
 		opts = {
 			ensure_installed = {
-				"ruff-lsp",
-				"pyright",
-				"prettier",
-				"black",
+				"typescript-language-server",
 				"astro@1.0.8",
-				"prettierd",
-				"emmet-language-server",
-				"tailwindcss-language-server",
 			},
 		},
 	})
