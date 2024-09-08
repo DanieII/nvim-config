@@ -3,22 +3,8 @@ local null_ls = require("null-ls")
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
--- .prettierrc.json file for Astro formatting to work
--- {
---   "semi": false,
---   "singleQuote": true,
---   "plugins": ["prettier-plugin-astro"],
---   "overrides": [
---     {
---       "files": "*.astro",
---       "options": {
---         "parser": "astro"
---       }
---     }
---   ]
--- }
-
 null_ls.setup({
+	root_dir = require("null-ls.utils").root_pattern(".null-ls-root", "Makefile", ".git", "package.json"),
 	debug = false,
 	sources = {
 		formatting.stylua,
@@ -26,7 +12,39 @@ null_ls.setup({
 		formatting.prettier.with({
 			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
 			extra_filetypes = { "astro" },
+			-- .prettierrc.json file for Astro formatting to work
+			-- {
+			--   "semi": false,
+			--   "singleQuote": true,
+			--   "plugins": ["prettier-plugin-astro"],
+			--   "overrides": [
+			--     {
+			--       "files": "*.astro",
+			--       "options": {
+			--         "parser": "astro"
+			--       }
+			--     }
+			--   ]
+			-- }
 		}),
+		diagnostics.eslint.with({
+			extra_args = function(params)
+				local file_types = { "js", "mjs", "cjs", "ts", "mts", "cts" }
+
+				for _, file_type in pairs(file_types) do
+					local file_exists = io.open(params.root .. "/eslint.config." .. file_type, "r") ~= nil
+
+					if file_exists then
+						return {}
+					end
+				end
+
+				return {
+					"--config",
+					vim.fn.expand("~/eslint.config.mjs"), -- Home directory file
+				}
+			end,
+		}), -- Requires configuration file in project root or home directory. Generate one with "npm init @eslint/config@latest"
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
