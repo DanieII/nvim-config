@@ -10,7 +10,7 @@ null_ls.setup({
 		formatting.stylua,
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.prettier.with({
-			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+			-- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
 			extra_filetypes = { "astro" },
 			-- .prettierrc.json file for Astro formatting to work
 			-- {
@@ -30,7 +30,6 @@ null_ls.setup({
 		diagnostics.eslint.with({
 			extra_args = function(params)
 				local file_types = { "js", "mjs", "cjs", "ts", "mts", "cts" }
-
 				for _, file_type in pairs(file_types) do
 					local file_exists = io.open(params.root .. "/eslint.config." .. file_type, "r") ~= nil
 
