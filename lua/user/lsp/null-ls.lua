@@ -9,6 +9,7 @@ null_ls.setup({
 	sources = {
 		formatting.stylua,
 		formatting.black.with({ extra_args = { "--fast" } }),
+		formatting.djlint,
 		formatting.prettier.with({
 			-- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
 			extra_filetypes = { "astro" },
