@@ -2,6 +2,9 @@ local nvim_tree_config = require("nvim-tree.config")
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 require("nvim-tree").setup({
+	update_focused_file = {
+		enable = true,
+	},
 	view = {
 		mappings = {
 			list = {

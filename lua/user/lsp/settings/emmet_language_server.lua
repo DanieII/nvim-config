@@ -1,1 +1,1 @@
-return { filetypes = { "html", "astro", "javascriptreact", "typescriptreact" } }
+return { filetypes = { "html", "astro", "javascriptreact", "typescriptreact", "htmldjango" } }
