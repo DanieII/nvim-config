@@ -32,5 +32,8 @@ return {
 				includeInlayEnumMemberValueHints = true,
 			},
 		},
+		diagnostics = {
+			ignoredCodes = { 6133 },
+		},
 	},
 }
