@@ -20,61 +20,57 @@ lspconfig.lua_ls.setup({
 	},
 })
 
+-- Python
+lspconfig.pyright.setup({})
+
 -- JavaScript/Typescript
 lspconfig.ts_ls.setup({
 	capabilities = capabilities,
+	filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "astro" },
+	on_attach = function(client)
+		client.server_capabilities.document_formatting = false
+	end,
+	init_options = {
+		preferences = {
+			disableSuggestions = true,
+		},
+	},
+	single_file_support = false,
 	settings = {
-		filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "astro" },
-		on_attach = function(client)
-			client.server_capabilities.document_formatting = false
-		end,
-		init_options = {
-			preferences = {
-				disableSuggestions = true,
+		typescript = {
+			inlayHints = {
+				includeInlayParameterNameHints = "literal",
+				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayVariableTypeHints = false,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayEnumMemberValueHints = true,
 			},
 		},
-		single_file_support = false,
-		settings = {
-			typescript = {
-				inlayHints = {
-					includeInlayParameterNameHints = "literal",
-					includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-					includeInlayFunctionParameterTypeHints = true,
-					includeInlayVariableTypeHints = false,
-					includeInlayPropertyDeclarationTypeHints = true,
-					includeInlayFunctionLikeReturnTypeHints = true,
-					includeInlayEnumMemberValueHints = true,
-				},
+		javascript = {
+			inlayHints = {
+				includeInlayParameterNameHints = "all",
+				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayVariableTypeHints = true,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayEnumMemberValueHints = true,
 			},
-			javascript = {
-				inlayHints = {
-					includeInlayParameterNameHints = "all",
-					includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-					includeInlayFunctionParameterTypeHints = true,
-					includeInlayVariableTypeHints = true,
-					includeInlayPropertyDeclarationTypeHints = true,
-					includeInlayFunctionLikeReturnTypeHints = true,
-					includeInlayEnumMemberValueHints = true,
-				},
-			},
-			diagnostics = {
-				ignoredCodes = { 6133 },
-			},
+		},
+		diagnostics = {
+			ignoredCodes = { 6133 },
 		},
 	},
 })
 
--- Python
-lspconfig.pyright.setup({})
-
 -- Astro
 lspconfig.astro.setup({
 	capabilities = capabilities,
-	settings = {
-		init_options = {
-			typescript = {
-				serverPath = vim.fs.normalize("/usr/local/lib/node_modules/typescript/lib/tsserverlibrary.js"),
-			},
+	init_options = {
+		typescript = {
+			serverPath = vim.fs.normalize("/usr/local/lib/node_modules/typescript/lib/tsserverlibrary.js"),
 		},
 	},
 })
@@ -82,21 +78,19 @@ lspconfig.astro.setup({
 -- CSS
 lspconfig.cssls.setup({
 	capabilities = capabilities,
-	settings = {
-		init_options = {
-			provideFormatter = false,
-		},
+	init_options = {
+		provideFormatter = false,
 	},
 })
 
 -- Tailwind
 lspconfig.tailwindcss.setup({
 	capabilities = capabilities,
-	settings = { filetypes = { "javascriptreact", "typescriptreact", "html", "astro" } },
+	filetypes = { "javascriptreact", "typescriptreact", "html", "astro" },
 })
 
 -- Emmet
 lspconfig.emmet_language_server.setup({
 	capabilities = capabilities,
-	settings = { "javascriptreact", "typescriptreact", "html", "htmldjango", "astro" },
+	filetypes = { "javascriptreact", "typescriptreact", "html", "htmldjango", "astro" },
 })
