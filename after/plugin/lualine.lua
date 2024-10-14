@@ -1,6 +1,7 @@
 local function lsp_and_formatters()
 	local active_servers = {}
-	local buf_lsps = vim.lsp.get_clients()
+	local current_buf = vim.api.nvim_get_current_buf()
+	local buf_lsps = vim.lsp.get_clients({ bufnr = current_buf })
 
 	if #buf_lsps == 0 then
 		return "LSP Inactive"
