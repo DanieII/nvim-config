@@ -18,23 +18,25 @@ return require("packer").startup(function(use)
 	use("nvim-tree/nvim-web-devicons")
 	use("rebelot/kanagawa.nvim")
 	use("nvim-treesitter/nvim-treesitter")
-	use("nvim-treesitter/playground")
 	use({ "nvim-tree/nvim-tree.lua", commit = "7282f7de8aedf861fe0162a559fc2b214383c51c" })
 	use("nvim-telescope/telescope.nvim")
-	use({ "akinsho/bufferline.nvim", tag = "*" })
+
+	use("akinsho/bufferline.nvim")
 	use("nvim-lualine/lualine.nvim")
+
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("neovim/nvim-lspconfig")
 	use("jose-elias-alvarez/null-ls.nvim")
+
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-nvim-lua")
 	use("saadparwaiz1/cmp_luasnip")
-	use({ "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" } })
 	use("rafamadriz/friendly-snippets")
+	use("L3MON4D3/LuaSnip")
 
 	if packer_bootstrap then
 		require("packer").sync()

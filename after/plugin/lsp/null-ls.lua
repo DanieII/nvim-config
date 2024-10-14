@@ -11,7 +11,6 @@ null_ls.setup({
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.djlint,
 		formatting.prettier.with({
-			-- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
 			extra_filetypes = { "astro" },
 			-- .prettierrc.json file for Astro formatting to work
 			-- {
