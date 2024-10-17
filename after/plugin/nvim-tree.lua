@@ -1,5 +1,8 @@
 local nvim_tree_config = require("nvim-tree.config")
 local tree_cb = nvim_tree_config.nvim_tree_callback
+local opts = { noremap = true, silent = true }
+
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 require("nvim-tree").setup({
 	update_focused_file = {

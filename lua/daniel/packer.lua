@@ -13,22 +13,49 @@ local packer_bootstrap = ensure_packer()
 
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
-	use("nvim-lua/plenary.nvim")
-	use("windwp/nvim-autopairs")
-	use("nvim-tree/nvim-web-devicons")
+
+	-- Colorscheme
 	use("rebelot/kanagawa.nvim")
-	use("nvim-treesitter/nvim-treesitter")
-	use({ "nvim-tree/nvim-tree.lua", commit = "7282f7de8aedf861fe0162a559fc2b214383c51c" })
-	use("nvim-telescope/telescope.nvim")
 
-	use("akinsho/bufferline.nvim")
-	use("nvim-lualine/lualine.nvim")
+	-- Highlights
+	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
-	use("williamboman/mason.nvim")
-	use("williamboman/mason-lspconfig.nvim")
-	use("neovim/nvim-lspconfig")
+	-- Files
+	use({
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.8",
+		requires = { "nvim-lua/plenary.nvim" },
+	})
+	use({
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+	})
+	use({
+		"nvim-tree/nvim-tree.lua",
+		commit = "7282f7de8aedf861fe0162a559fc2b214383c51c",
+		requires = {
+			"nvim-tree/nvim-web-devicons",
+		},
+	})
+
+	-- Statusline
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "nvim-tree/nvim-web-devicons", opt = true },
+	})
+
+	-- Automatically close (), [], {}
+	use("windwp/nvim-autopairs")
+
+	-- LSP
+	use({
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
+	})
 	use("jose-elias-alvarez/null-ls.nvim")
 
+	-- Autocompletion
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
