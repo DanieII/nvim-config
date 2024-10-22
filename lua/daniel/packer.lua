@@ -54,6 +54,7 @@ return require("packer").startup(function(use)
 		"neovim/nvim-lspconfig",
 	})
 	use("jose-elias-alvarez/null-ls.nvim")
+	use("jay-babu/mason-null-ls.nvim")
 
 	-- Autocompletion
 	use("hrsh7th/nvim-cmp")

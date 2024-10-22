@@ -28,7 +28,7 @@ lspconfig.lua_ls.setup({
 })
 
 -- Python
-lspconfig.pyright.setup({})
+lspconfig.pyright.setup(capabilities)
 
 -- JavaScript/Typescript
 lspconfig.ts_ls.setup({
@@ -100,4 +100,10 @@ lspconfig.tailwindcss.setup({
 lspconfig.emmet_language_server.setup({
 	capabilities = capabilities,
 	filetypes = { "javascriptreact", "typescriptreact", "html", "htmldjango", "astro" },
+})
+
+-- GDScript
+lspconfig.gdscript.setup({
+	capabilities = capabilities,
+	cmd = vim.lsp.rpc.connect("127.0.0.1", 6005),
 })

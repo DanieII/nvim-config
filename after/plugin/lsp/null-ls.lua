@@ -10,6 +10,7 @@ null_ls.setup({
 		formatting.stylua,
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.djlint,
+		formatting.gdformat,
 		formatting.prettier.with({
 			extra_filetypes = { "astro" },
 			-- .prettierrc.json file for Astro formatting to work
