@@ -11,23 +11,7 @@ null_ls.setup({
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.djlint,
 		formatting.gdformat,
-		formatting.prettier.with({
-			extra_filetypes = { "astro" },
-			-- .prettierrc.json file for Astro formatting to work
-			-- {
-			--   "semi": false,
-			--   "singleQuote": true,
-			--   "plugins": ["prettier-plugin-astro"],
-			--   "overrides": [
-			--     {
-			--       "files": "*.astro",
-			--       "options": {
-			--         "parser": "astro"
-			--       }
-			--     }
-			--   ]
-			-- }
-		}),
+		formatting.prettier.with({ extra_filetypes = { "astro" } }),
 		diagnostics.eslint.with({
 			extra_args = function(params)
 				local file_types = { "js", "mjs", "cjs", "ts", "mts", "cts" }

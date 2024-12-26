@@ -33,7 +33,7 @@ lspconfig.pyright.setup(capabilities)
 -- JavaScript/Typescript
 lspconfig.ts_ls.setup({
 	capabilities = capabilities,
-	filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "astro" },
+	filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
 	on_attach = function(client)
 		client.server_capabilities.document_formatting = false
 	end,

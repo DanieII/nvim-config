@@ -66,6 +66,9 @@ return require("packer").startup(function(use)
 	use("rafamadriz/friendly-snippets")
 	use("L3MON4D3/LuaSnip")
 
+	-- Copilot
+	use("github/copilot.vim")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

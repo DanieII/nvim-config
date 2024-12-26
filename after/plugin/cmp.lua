@@ -14,7 +14,7 @@ cmp.setup({
 		completion = cmp.config.window.bordered({}),
 	},
 	mapping = cmp.mapping.preset.insert({
-		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+		["<A-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 		["<CR>"] = cmp.mapping.confirm({ select = false }),
 		["<Tab>"] = cmp.mapping.select_next_item(select_opts),
 		["<S-Tab>"] = cmp.mapping.select_prev_item(select_opts),
