@@ -22,3 +22,10 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- Moving highlighted text
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- Copilot
+vim.keymap.set("i", "<S-TAB>", 'copilot#Accept("\\<CR>")', {
+	expr = true,
+	replace_keycodes = false,
+})
+vim.g.copilot_no_tab_map = true
