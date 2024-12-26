@@ -93,7 +93,7 @@ lspconfig.cssls.setup({
 -- Tailwind
 lspconfig.tailwindcss.setup({
 	capabilities = capabilities,
-	filetypes = { "javascriptreact", "typescriptreact", "html", "astro" },
+	filetypes = { "javascriptreact", "typescriptreact", "html", "astro", "htmldjango" },
 })
 
 -- Emmet
