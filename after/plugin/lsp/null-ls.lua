@@ -12,23 +12,7 @@ null_ls.setup({
 		formatting.djlint,
 		formatting.gdformat,
 		formatting.prettier.with({ extra_filetypes = { "astro" } }),
-		diagnostics.eslint.with({
-			extra_args = function(params)
-				local file_types = { "js", "mjs", "cjs", "ts", "mts", "cts" }
-				for _, file_type in pairs(file_types) do
-					local file_exists = io.open(params.root .. "/eslint.config." .. file_type, "r") ~= nil
-
-					if file_exists then
-						return {}
-					end
-				end
-
-				return {
-					"--config",
-					vim.fn.expand("~/eslint.config.mjs"), -- Home directory file
-				}
-			end,
-		}), -- Requires configuration file in project root or home directory. Generate one with "npm init @eslint/config@latest"
+		diagnostics.eslint_d,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
