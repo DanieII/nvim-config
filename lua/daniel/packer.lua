@@ -69,7 +69,7 @@ return require("packer").startup(function(use)
 
 	-- Copilot
 	use("github/copilot.vim")
-	use("CopilotC-Nvim/CopilotChat.nvim")
+	use({ "CopilotC-Nvim/CopilotChat.nvim", run = "make tiktoken" })
 
 	-- Markdown
 	use({ "MeanderingProgrammer/render-markdown.nvim", requires = { "nvim-tree/nvim-web-devicons", opt = true } })
