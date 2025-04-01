@@ -29,6 +29,8 @@ lspconfig.ts_ls.setup({
 	filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
 	on_attach = function(client)
 		client.server_capabilities.document_formatting = false
+		client.server_capabilities.documentFormattingProvider = false
+		client.server_capabilities.documentFormattingRangeProvider = false
 	end,
 	init_options = {
 		preferences = {
