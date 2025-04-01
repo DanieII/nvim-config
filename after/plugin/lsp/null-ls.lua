@@ -12,7 +12,7 @@ null_ls.setup({
 		formatting.djlint,
 		formatting.gdformat,
 		formatting.prettier.with({ extra_filetypes = { "astro" } }),
-		diagnostics.eslint_d,
+		diagnostics.eslint,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then

@@ -53,21 +53,22 @@ return require("packer").startup(function(use)
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
 	})
-	use("jose-elias-alvarez/null-ls.nvim")
+	use("nvimtools/none-ls.nvim")
 	use("jay-babu/mason-null-ls.nvim")
 
 	-- Autocompletion
 	use("hrsh7th/nvim-cmp")
+	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-nvim-lua")
+	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
 	use("rafamadriz/friendly-snippets")
-	use("L3MON4D3/LuaSnip")
 
 	-- Copilot
 	use("github/copilot.vim")
+	use("CopilotC-Nvim/CopilotChat.nvim")
 
 	if packer_bootstrap then
 		require("packer").sync()
