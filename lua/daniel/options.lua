@@ -22,3 +22,5 @@ vim.opt.backup = false
 vim.opt.showmode = false
 
 vim.opt.ignorecase = true
+
+vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert", "popup" }

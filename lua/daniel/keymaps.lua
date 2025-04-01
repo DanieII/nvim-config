@@ -50,5 +50,5 @@ vim.keymap.set("i", "<C-CR>", 'copilot#Accept("\\<CR>")', {
 })
 vim.g.copilot_no_tab_map = true
 vim.keymap.set("n", "<leader>aa", ":CopilotChatToggle<CR>", opts)
-vim.keymap.set("n", "<leader>al", ":CopilotChatReset<CR>", opts)
+vim.keymap.set("n", "<leader>ar", ":CopilotChatReset<CR>", opts)
 vim.keymap.set("n", "<leader>aq", ":CopilotChatStop<CR>", opts)

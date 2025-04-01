@@ -1,4 +1,5 @@
 require("CopilotChat").setup({
+	model = "claude-3.5-sonnet",
 	mappings = {
 		reset = {
 			normal = "<C-x>",

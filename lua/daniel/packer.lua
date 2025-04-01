@@ -26,6 +26,7 @@ return require("packer").startup(function(use)
 		tag = "0.1.8",
 		requires = { "nvim-lua/plenary.nvim" },
 	})
+	use({ "nvim-telescope/telescope-ui-select.nvim" })
 	use({
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
