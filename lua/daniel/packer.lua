@@ -53,7 +53,7 @@ return require("packer").startup(function(use)
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
 	})
-	use("nvimtools/none-ls.nvim")
+	use({ "nvimtools/none-ls.nvim", requires = { "nvimtools/none-ls-extras.nvim" } })
 	use("jay-babu/mason-null-ls.nvim")
 
 	-- Autocompletion

@@ -10,7 +10,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.djlint,
 		null_ls.builtins.formatting.gdformat,
 		null_ls.builtins.formatting.prettier.with({ extra_filetypes = { "astro" } }),
-		null_ls.builtins.diagnostics.eslint,
+		require("none-ls.diagnostics.eslint"),
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
@@ -21,8 +21,8 @@ null_ls.setup({
 				callback = function()
 					vim.lsp.buf.format({
 						async = false,
-						filter = function(client)
-							return client.name == "null-ls"
+						filter = function(c)
+							return c.name == "null-ls"
 						end,
 					})
 				end,
