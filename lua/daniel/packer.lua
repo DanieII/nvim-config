@@ -70,6 +70,9 @@ return require("packer").startup(function(use)
 	use("github/copilot.vim")
 	use("CopilotC-Nvim/CopilotChat.nvim")
 
+	-- Markdown
+	use({ "MeanderingProgrammer/render-markdown.nvim", requires = { "nvim-tree/nvim-web-devicons", opt = true } })
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
