@@ -74,6 +74,9 @@ return require("packer").startup(function(use)
 	-- Markdown
 	use({ "MeanderingProgrammer/render-markdown.nvim", requires = { "nvim-tree/nvim-web-devicons", opt = true } })
 
+	-- Adding, changing, and removing pairs of tags
+	use("tpope/vim-surround")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
