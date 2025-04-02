@@ -44,11 +44,14 @@ vim.keymap.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 
 -- Copilot
-vim.keymap.set("i", "<C-CR>", 'copilot#Accept("\\<CR>")', {
-	expr = true,
-	replace_keycodes = false,
-})
 vim.g.copilot_no_tab_map = true
+vim.g.copilot_filetypes = {
+	["copilot-chat"] = false,
+}
+vim.keymap.set("i", "<C-y>", 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
+vim.keymap.set("i", "<C-\\>", "<Plug>(copilot-suggest)", opts)
+vim.keymap.set("i", "<C-j>", "<Plug>(copilot-next)", opts)
+vim.keymap.set("i", "<C-k>", "<Plug>(copilot-previous)", opts)
 vim.keymap.set("n", "<leader>aa", ":CopilotChatToggle<CR>", opts)
 vim.keymap.set("n", "<leader>ar", ":CopilotChatReset<CR>", opts)
 vim.keymap.set("n", "<leader>as", ":CopilotChatStop<CR>", opts)
@@ -57,4 +60,5 @@ vim.keymap.set("n", "<leader>ap", ":CopilotChatPrompts<CR>", opts)
 vim.keymap.set("v", "<leader>ae", ":CopilotChatExplain<CR>", opts)
 vim.keymap.set("v", "<leader>ao", ":CopilotChatOptimize<CR>", opts)
 vim.keymap.set("v", "<leader>at", ":CopilotChatTest<CR>", opts)
-vim.keymap.set("v", "<leader>ac", ":CopilotChatCommit<CR>", opts)
+vim.keymap.set("v", "<leader>ar", ":CopilotChatReview<CR>", opts)
+vim.keymap.set("n", "<leader>ac", ":CopilotChatCommit<CR>", opts)

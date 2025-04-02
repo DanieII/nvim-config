@@ -1,5 +1,6 @@
 local nvim_tree_config = require("nvim-tree.config")
 local tree_cb = nvim_tree_config.nvim_tree_callback
+local api = require("nvim-tree.api")
 
 require("nvim-tree").setup({
 	update_focused_file = {
@@ -43,3 +44,7 @@ require("nvim-tree").setup({
 		},
 	},
 })
+
+api.events.subscribe(api.events.Event.FileCreated, function(file)
+	vim.cmd("edit " .. vim.fn.fnameescape(file.fname))
+end)

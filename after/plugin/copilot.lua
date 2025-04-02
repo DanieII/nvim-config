@@ -9,5 +9,12 @@ require("CopilotChat").setup({
 			normal = "<CR>",
 			insert = "<C-CR>",
 		},
+		yank_diff = {
+			normal = "gy",
+			register = "+",
+		},
 	},
+	question_header = " " .. "" .. " ",
+	answer_header = " " .. "" .. " ",
+	error_header = " " .. "" .. " ",
 })
