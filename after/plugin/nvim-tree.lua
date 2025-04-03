@@ -63,6 +63,10 @@ require("nvim-tree").setup({
 		},
 	},
 	on_attach = function(bufnr)
+		-- default mappings
+		api.config.mappings.default_on_attach(bufnr)
+
+		-- custom mappings
 		local opts = { buffer = bufnr, noremap = true, silent = true, nowait = true }
 		vim.keymap.set("n", "l", edit_or_open, opts)
 		vim.keymap.set("n", "s", vsplit_preview, opts)
