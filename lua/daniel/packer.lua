@@ -17,36 +17,36 @@ return require("packer").startup(function(use)
 	-- Colorscheme
 	use("rebelot/kanagawa.nvim")
 
-	-- Highlights
+	-- Syntax highlighting
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
-	-- Files
+	-- File navigation
 	use({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.8",
 		requires = { "nvim-lua/plenary.nvim" },
 	})
-	use({ "nvim-telescope/telescope-ui-select.nvim" })
+	use("nvim-telescope/telescope-ui-select.nvim")
 	use({
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
+		requires = { "nvim-lua/plenary.nvim" },
 	})
 	use({
 		"nvim-tree/nvim-tree.lua",
-		commit = "7282f7de8aedf861fe0162a559fc2b214383c51c",
-		requires = {
-			"nvim-tree/nvim-web-devicons",
-		},
+		requires = { "nvim-tree/nvim-web-devicons" },
 	})
 
 	-- Statusline
 	use({
 		"nvim-lualine/lualine.nvim",
-		requires = { "nvim-tree/nvim-web-devicons", opt = true },
+		requires = { "nvim-tree/nvim-web-devicons" },
 	})
 
-	-- Automatically close (), [], {}
-	use("windwp/nvim-autopairs")
+	-- Autopairs
+	use({
+		"windwp/nvim-autopairs",
+	})
 
 	-- LSP
 	use({
@@ -55,27 +55,40 @@ return require("packer").startup(function(use)
 		"neovim/nvim-lspconfig",
 	})
 	use({ "nvimtools/none-ls.nvim", requires = { "nvimtools/none-ls-extras.nvim" } })
-	use("jay-babu/mason-null-ls.nvim")
+	use({
+		"jay-babu/mason-null-ls.nvim",
+		requires = {
+			"williamboman/mason.nvim",
+			"nvimtools/none-ls.nvim",
+		},
+	})
 
 	-- Autocompletion
-	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
+	use("hrsh7th/cmp-cmdline")
 	use("hrsh7th/cmp-nvim-lua")
+	use("hrsh7th/nvim-cmp")
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
 	use("rafamadriz/friendly-snippets")
 
-	-- Copilot
-	use("github/copilot.vim")
-	use({ "CopilotC-Nvim/CopilotChat.nvim", run = "make tiktoken" })
-
-	-- Markdown
-	use({ "MeanderingProgrammer/render-markdown.nvim", requires = { "nvim-tree/nvim-web-devicons", opt = true } })
-
 	-- Adding, changing, and removing pairs of tags
 	use("tpope/vim-surround")
+
+	-- Markdown
+	use({ "MeanderingProgrammer/render-markdown.nvim", requires = { "nvim-tree/nvim-web-devicons" } })
+
+	-- Copilot
+	use("github/copilot.vim")
+	use({
+		"CopilotC-Nvim/CopilotChat.nvim",
+		requires = {
+			"github/copilot.vim",
+			{ "nvim-lua/plenary.nvim", branch = "master" },
+		},
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()

@@ -26,14 +26,5 @@ vim.opt.ignorecase = true
 vim.opt.swapfile = false
 vim.opt.backup = false
 
--- System integration
+-- Clipboard
 vim.opt.clipboard = "unnamedplus"
-
--- Completion
-vim.opt.completeopt = {
-	"menu",
-	"menuone",
-	"noselect",
-	"noinsert",
-	"popup",
-}
