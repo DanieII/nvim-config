@@ -5,7 +5,6 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 lspconfig.lua_ls.setup({
 	capabilities = capabilities,
 	settings = {
-
 		Lua = {
 			diagnostics = {
 				globals = { "vim" },
@@ -21,7 +20,7 @@ lspconfig.lua_ls.setup({
 })
 
 -- Python
-lspconfig.pyright.setup(capabilities)
+lspconfig.pyright.setup({ capabilities = capabilities })
 
 -- JavaScript/Typescript
 lspconfig.ts_ls.setup({
@@ -88,17 +87,29 @@ lspconfig.cssls.setup({
 -- Tailwind
 lspconfig.tailwindcss.setup({
 	capabilities = capabilities,
-	filetypes = { "javascriptreact", "typescriptreact", "html", "astro", "htmldjango" },
+	filetypes = { "javascriptreact", "typescriptreact", "html", "astro", "htmldjango", "php" },
 })
 
 -- Emmet
 lspconfig.emmet_language_server.setup({
 	capabilities = capabilities,
-	filetypes = { "javascriptreact", "typescriptreact", "html", "htmldjango", "astro" },
+	filetypes = { "javascriptreact", "typescriptreact", "html", "htmldjango", "astro", "php" },
 })
 
 -- GDScript
 lspconfig.gdscript.setup({
 	capabilities = capabilities,
 	cmd = vim.lsp.rpc.connect("127.0.0.1", 6005),
+})
+
+-- PHP
+lspconfig.intelephense.setup({
+	root_dir = function()
+		return vim.loop.cwd()
+	end,
+	settings = {
+		intelephense = {
+			stubs = { "date", "dom", "wordpress", "wordpress-stubs", "woocommerce-stubs", "wordpress-globals" }, -- composer global require php-stubs/wordpress-globals php-stubs/wordpress-stubs php-stubs/woocommerce-stubs
+		},
+	},
 })

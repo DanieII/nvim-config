@@ -1,5 +1,5 @@
 require("CopilotChat").setup({
-	model = "claude-3.5-sonnet",
+	-- model = "claude-3.7-sonnet",
 	mappings = {
 		reset = {
 			normal = "<C-x>",
@@ -13,10 +13,14 @@ require("CopilotChat").setup({
 			normal = "gy",
 			register = "+",
 		},
+		complete = {
+			insert = "<Tab>",
+		},
 	},
-	question_header = " " .. "" .. " ",
-	answer_header = " " .. "" .. " ",
-	error_header = " " .. "" .. " ",
+	headers = {
+		user = "" .. " ",
+		assistant = "" .. " ",
+	},
 })
 
 vim.g.copilot_no_tab_map = true

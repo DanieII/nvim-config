@@ -5,15 +5,17 @@ require("mason-lspconfig").setup({
 		"lua_ls",
 		"pyright",
 		"ts_ls",
-		"emmet_language_server",
-		"tailwindcss",
 		"astro",
 		"cssls",
+		"tailwindcss",
+		"emmet_language_server",
+		"intelephense",
 	},
 	automatic_installation = true,
+	automatic_enable = false,
 })
 
 require("mason-null-ls").setup({
-	ensure_installed = nil,
+	ensure_installed = { "stylua", "black", "djlint", "prettier", "eslint", "gdformat", "phpcsfixer" },
 	automatic_installation = true,
 })

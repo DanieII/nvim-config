@@ -11,6 +11,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.gdformat,
 		null_ls.builtins.formatting.prettier.with({ extra_filetypes = { "astro" } }),
 		require("none-ls.diagnostics.eslint"),
+		null_ls.builtins.formatting.phpcsfixer,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
@@ -21,9 +22,6 @@ null_ls.setup({
 				callback = function()
 					vim.lsp.buf.format({
 						async = false,
-						filter = function(c)
-							return c.name == "null-ls"
-						end,
 					})
 				end,
 			})
