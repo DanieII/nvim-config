@@ -1,13 +1,13 @@
 local opts = { noremap = true, silent = true }
 
--- Space as leader
+-- Leader
 vim.g.mapleader = " "
 
 -- Save file
 vim.keymap.set("n", "<leader>w", ":w<CR>", opts)
 
 -- Select whole file
-vim.keymap.set("n", "<D-a>", "ggVG")
+vim.keymap.set("n", "<D-a>", "gg<S-v>G")
 
 -- Centered scrolling
 vim.keymap.set("n", "<C-u>", "<C-u>zz")

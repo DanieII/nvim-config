@@ -1,10 +1,19 @@
 return {
     {
-        "github/copilot.vim",
-        keys = {
-            { "<C-y>", 'copilot#Accept("\\<CR>")' },
-
-        }
+        "zbirenbaum/copilot.lua",
+        opts = {
+            suggestion = {
+                auto_trigger = true,
+                keymap = {
+                    accept = "<C-y>",
+                    accept_word = "<C-l>",
+                },
+            },
+            filetypes = {
+                markdown = true,
+                help = true,
+            },
+        },
     },
     {
         "CopilotC-Nvim/CopilotChat.nvim",
