@@ -24,19 +24,15 @@ return {
         opts = {
             mappings = {
                 reset = {
-                    normal = "<C-x>",
-                    insert = "<C-x>",
+                    normal = "<C-r>",
+                    insert = "<C-r>",
                 },
                 submit_prompt = {
-                    normal = "<CR>",
                     insert = "<C-CR>",
                 },
                 yank_diff = {
                     normal = "gy",
                     register = "+",
-                },
-                complete = {
-                    insert = "<Tab>",
                 },
             },
             headers = {
@@ -46,15 +42,15 @@ return {
         },
         keys = {
             { "<leader>aa", ":CopilotChatToggle<CR>" },
-            { "<leader>ar", ":CopilotChatReset<CR>" },
             { "<leader>as", ":CopilotChatStop<CR>" },
+            { "<leader>ar", ":CopilotChatReset<CR>" },
             { "<leader>am", ":CopilotChatModels<CR>" },
             { "<leader>ap", ":CopilotChatPrompts<CR>" },
+            { "<leader>ac", ":CopilotChatCommit<CR>" },
+            { "<leader>af", ":CopilotChatFix<CR>",      mode = "v" },
             { "<leader>ae", ":CopilotChatExplain<CR>",  mode = "v" },
             { "<leader>ao", ":CopilotChatOptimize<CR>", mode = "v" },
             { "<leader>at", ":CopilotChatTest<CR>",     mode = "v" },
-            { "<leader>ar", ":CopilotChatReview<CR>",   mode = "v" },
-            { "<leader>ac", ":CopilotChatCommit<CR>",   mode = "v" },
         },
     },
 }
