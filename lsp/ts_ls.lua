@@ -7,6 +7,7 @@ return {
         "javascript",
         "javascriptreact",
         "javascript.jsx",
+        "astro",
     },
     root_markers = { "package.json", "tsconfig.json" },
     init_options = {

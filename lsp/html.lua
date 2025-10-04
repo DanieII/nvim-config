@@ -1,6 +1,6 @@
 return {
     cmd = { 'vscode-html-language-server', '--stdio' },
-    filetypes = { 'html' },
+    filetypes = { 'html', "astro" },
     root_markers = { 'package.json', '.git' },
     settings = {},
     init_options = {
