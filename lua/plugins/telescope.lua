@@ -6,6 +6,7 @@ return {
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope-ui-select.nvim",
         },
+        ft = { "copilot-chat" },
         config = function()
             require("telescope").setup({
                 extensions = {
