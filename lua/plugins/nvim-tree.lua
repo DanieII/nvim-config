@@ -12,6 +12,10 @@ return {
         local api = require("nvim-tree.api")
 
         require("nvim-tree").setup({
+            update_focused_file = {
+                enable = true,
+                update_root = true,
+            },
             on_attach = function(bufnr)
                 -- default mappings
                 api.config.mappings.default_on_attach(bufnr)
