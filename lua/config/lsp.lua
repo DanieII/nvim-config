@@ -6,7 +6,8 @@ vim.lsp.enable({
     "cssls",
     "tailwindcss",
     "emmet_language_server",
-    "astro"
+    "astro",
+    "intelephense"
 })
 
 vim.diagnostic.config({

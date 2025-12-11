@@ -7,6 +7,7 @@ return {
         'htmldjango',
         'javascriptreact',
         'typescriptreact',
+        "php"
     },
     root_markers = { '.git' },
 }
