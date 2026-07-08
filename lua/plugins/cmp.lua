@@ -16,7 +16,7 @@ return {
         sources = {
             default = { 'lsp', 'path', 'snippets', 'buffer' },
         },
-        enabled = function() return not vim.tbl_contains({ "copilot-chat" }, vim.bo.filetype) end,
+        enabled = function() return not vim.tbl_contains({ "AvanteInput" }, vim.bo.filetype) end,
         menu = {
             border = "single",
             draw = {

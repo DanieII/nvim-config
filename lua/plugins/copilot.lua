@@ -1,12 +1,14 @@
 return {
     {
         "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        build = ":Copilot auth",
+        event = "InsertEnter",
         opts = {
             suggestion = {
                 auto_trigger = true,
                 keymap = {
                     accept = "<C-y>",
-                    accept_word = "<C-l>",
                 },
             },
             filetypes = {
@@ -16,41 +18,33 @@ return {
         },
     },
     {
-        "CopilotC-Nvim/CopilotChat.nvim",
-        dependencies = {
-            { "nvim-lua/plenary.nvim", branch = "master" },
-        },
-        build = "make tiktoken",
+        "yetone/avante.nvim",
+        event = "VeryLazy",
+        version = false,
+        build = "make",
         opts = {
-            mappings = {
-                reset = {
-                    normal = "<C-r>",
-                    insert = "<C-r>",
-                },
-                submit_prompt = {
-                    insert = "<C-CR>",
-                },
-                yank_diff = {
-                    normal = "gy",
-                    register = "+",
+            mode = "agentic",
+            provider = "copilot",
+        },
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "MunifTanjim/nui.nvim",
+            "nvim-telescope/telescope.nvim",
+            "folke/snacks.nvim",
+            "nvim-tree/nvim-web-devicons",
+            {
+                "HakonHarnes/img-clip.nvim",
+                event = "VeryLazy",
+                opts = {
+                    default = {
+                        embed_image_as_base64 = false,
+                        prompt_for_file_name = false,
+                        drag_and_drop = {
+                            insert_mode = true,
+                        },
+                    },
                 },
             },
-            headers = {
-                user = "" .. " ",
-                assistant = "" .. " ",
-            },
         },
-        keys = {
-            { "<leader>aa", ":CopilotChatToggle<CR>" },
-            { "<leader>as", ":CopilotChatStop<CR>" },
-            { "<leader>ar", ":CopilotChatReset<CR>" },
-            { "<leader>am", ":CopilotChatModels<CR>" },
-            { "<leader>ap", ":CopilotChatPrompts<CR>" },
-            { "<leader>ac", ":CopilotChatCommit<CR>" },
-            { "<leader>af", ":CopilotChatFix<CR>",      mode = "v" },
-            { "<leader>ae", ":CopilotChatExplain<CR>",  mode = "v" },
-            { "<leader>ao", ":CopilotChatOptimize<CR>", mode = "v" },
-            { "<leader>at", ":CopilotChatTest<CR>",     mode = "v" },
-        },
-    },
+    }
 }
