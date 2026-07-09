@@ -5,8 +5,8 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope-ui-select.nvim",
+            { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
         },
-        -- ft = { "copilot-chat" },
         config = function()
             require("telescope").setup({
                 extensions = {
@@ -17,6 +17,7 @@ return {
             })
 
             require("telescope").load_extension("ui-select")
+            require("telescope").load_extension("fzf")
         end,
         keys = {
             { "<leader>ff", "<cmd>Telescope find_files<cr>" },
