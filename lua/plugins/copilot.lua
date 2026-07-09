@@ -2,20 +2,17 @@ return {
     {
         "zbirenbaum/copilot.lua",
         cmd = "Copilot",
-        build = ":Copilot auth",
         event = "InsertEnter",
         opts = {
             suggestion = {
-                auto_trigger = true,
                 keymap = {
                     accept = "<C-y>",
                 },
             },
-            filetypes = {
-                markdown = true,
-                help = true,
-            },
         },
+        dependencies = {
+            "copilotlsp-nvim/copilot-lsp"
+        }
     },
     {
         "yetone/avante.nvim",
@@ -30,8 +27,10 @@ return {
             "nvim-lua/plenary.nvim",
             "MunifTanjim/nui.nvim",
             "nvim-telescope/telescope.nvim",
+            "hrsh7th/nvim-cmp",
             "folke/snacks.nvim",
             "nvim-tree/nvim-web-devicons",
+            "zbirenbaum/copilot.lua",
             {
                 "HakonHarnes/img-clip.nvim",
                 event = "VeryLazy",
@@ -46,5 +45,5 @@ return {
                 },
             },
         },
-    }
+    },
 }
