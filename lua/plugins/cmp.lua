@@ -11,7 +11,7 @@ return {
             preset = 'enter',
             ['<S-Tab>'] = { 'select_prev', 'fallback' },
             ['<Tab>'] = { 'select_next', 'fallback' },
-            ["<A-Space>"] = { "show" }
+            ["<M-Space>"] = { "show" }
         },
         appearance = {
             nerd_font_variant = 'normal'

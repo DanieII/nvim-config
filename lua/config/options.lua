@@ -9,6 +9,7 @@ vim.opt.scrolloff = 999
 vim.opt.termguicolors = true
 vim.opt.laststatus = 3
 vim.opt.showmode = false
+vim.opt.cursorline = true
 
 -- Indentation
 vim.opt.autoindent = true
