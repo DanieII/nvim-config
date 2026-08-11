@@ -22,10 +22,12 @@ vim.opt.shiftround = true
 
 -- Search
 vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 -- File handling
 vim.opt.swapfile = false
 vim.opt.backup = false
+vim.opt.undofile = true
 
 -- Clipboard
 vim.opt.clipboard = "unnamedplus"
